@@ -63,3 +63,6 @@ config/*_credentials.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Handoff documents (internal, may contain sensitive context)
+HANDOFF/
