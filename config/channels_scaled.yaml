@@ -1,0 +1,378 @@
+# YouTube Shorts Automation - Scaled Configuration (15 Channels)
+#
+# This configuration maximizes output within API limits:
+# - 15 different niches (channels)
+# - 6-7 videos uploaded daily across all channels
+# - Distributed throughout the day (no batch uploads)
+# - Generates 3x daily content for queue
+#
+# YouTube API Limit: 10,000 units/day = ~6-7 uploads/day
+# This setup hits that limit efficiently
+
+channels:
+  science_facts:
+    niche: "Science & Space Facts"
+    videos_per_run: 1
+    posting_time: "06:00"  # 6 AM UTC
+    prompt_template: |
+      You are an expert science communicator creating engaging YouTube Shorts about fascinating science and space facts.
+      Make the content surprising, intriguing, and accessible to a general audience.
+      Include a surprising fact, brief explanation, and why it matters.
+      Keep it conversational and exciting. Max 50 words.
+    keywords:
+      - "space discoveries"
+      - "astronomy facts"
+      - "physics explained"
+      - "biology wonders"
+      - "neuroscience"
+      - "quantum physics"
+      - "earth science"
+    pexels_search_query: "space universe astronomy"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  motivation_daily:
+    niche: "Daily Motivation & Inspiration"
+    videos_per_run: 1
+    posting_time: "08:00"  # 8 AM UTC
+    prompt_template: |
+      You are a motivational coach creating powerful YouTube Shorts about personal growth.
+      Create uplifting, actionable content that resonates with people seeking self-improvement.
+      Include one core message with a relatable example and a call-to-action.
+      Make it inspirational but not preachy. Max 50 words.
+    keywords:
+      - "morning motivation"
+      - "success habits"
+      - "overcoming obstacles"
+      - "personal growth"
+      - "confidence building"
+      - "daily affirmations"
+      - "goal setting"
+    pexels_search_query: "success motivation inspiration people"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  life_hacks:
+    niche: "Life Hacks & Productivity"
+    videos_per_run: 1
+    posting_time: "10:00"  # 10 AM UTC
+    prompt_template: |
+      You are a productivity expert creating YouTube Shorts about practical life hacks.
+      Focus on immediately useful, easy-to-implement tips that save time or improve daily life.
+      Include the problem, the solution, and why it works.
+      Make it concise and actionable. Max 50 words.
+    keywords:
+      - "productivity hacks"
+      - "time management"
+      - "organization tips"
+      - "money saving hacks"
+      - "cooking shortcuts"
+      - "cleaning tips"
+      - "study techniques"
+    pexels_search_query: "workspace productivity organization"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  history_facts:
+    niche: "History & Timeline Facts"
+    videos_per_run: 1
+    posting_time: "12:00"  # 12 PM UTC (noon)
+    prompt_template: |
+      You are a history enthusiast creating engaging YouTube Shorts about historical facts.
+      Focus on surprising historical moments that challenge common assumptions.
+      Include the historical context, the surprising fact, and its impact.
+      Make it intriguing and thought-provoking. Max 50 words.
+    keywords:
+      - "ancient history"
+      - "medieval times"
+      - "historical figures"
+      - "world events"
+      - "lost civilizations"
+      - "war history"
+      - "cultural history"
+    pexels_search_query: "history ancient civilization"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  finance_tips:
+    niche: "Finance & Money Management"
+    videos_per_run: 1
+    posting_time: "14:00"  # 2 PM UTC
+    prompt_template: |
+      You are a finance expert creating YouTube Shorts about practical money management.
+      Focus on actionable financial advice that helps people save, invest, or understand money.
+      Include the problem, the solution, and the benefit.
+      Make it accessible to beginners but credible. Max 50 words.
+    keywords:
+      - "saving money"
+      - "investing for beginners"
+      - "financial independence"
+      - "budgeting tips"
+      - "passive income"
+      - "debt management"
+      - "compound interest"
+    pexels_search_query: "money finance business success"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  tech_trends:
+    niche: "Tech Trends & Innovation"
+    videos_per_run: 1
+    posting_time: "16:00"  # 4 PM UTC
+    prompt_template: |
+      You are a technology expert creating YouTube Shorts about latest tech trends.
+      Focus on exciting innovations and how they impact daily life.
+      Make it understandable to non-technical audiences.
+      Keep it concise and engaging. Max 50 words.
+    keywords:
+      - "AI breakthroughs"
+      - "tech innovations"
+      - "gadget reviews"
+      - "future technology"
+      - "programming tips"
+      - "cybersecurity"
+      - "startup news"
+    pexels_search_query: "technology innovation digital future"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  health_wellness:
+    niche: "Health & Wellness Tips"
+    videos_per_run: 1
+    posting_time: "18:00"  # 6 PM UTC
+    prompt_template: |
+      You are a health expert creating YouTube Shorts about wellness and healthy living.
+      Share science-backed tips for physical and mental health improvement.
+      Make it practical and motivating.
+      Include benefits and how to implement. Max 50 words.
+    keywords:
+      - "fitness tips"
+      - "nutrition facts"
+      - "mental health"
+      - "exercise routines"
+      - "sleep improvement"
+      - "stress management"
+      - "healthy habits"
+    pexels_search_query: "health wellness fitness lifestyle"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  business_growth:
+    niche: "Business & Entrepreneurship"
+    videos_per_run: 1
+    posting_time: "20:00"  # 8 PM UTC
+    prompt_template: |
+      You are a business mentor creating YouTube Shorts about entrepreneurship.
+      Share actionable business strategies and growth hacks.
+      Make it relevant to solopreneurs and small business owners.
+      Focus on practical, implementable advice. Max 50 words.
+    keywords:
+      - "business growth"
+      - "startup advice"
+      - "marketing strategies"
+      - "sales tips"
+      - "customer retention"
+      - "business hacks"
+      - "productivity tips"
+    pexels_search_query: "business entrepreneurship startup growth"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  psychology_insights:
+    niche: "Psychology & Human Behavior"
+    videos_per_run: 1
+    posting_time: "22:00"  # 10 PM UTC
+    prompt_template: |
+      You are a psychology expert creating YouTube Shorts about human behavior.
+      Share fascinating insights about how the mind works.
+      Make psychology accessible and relatable.
+      Include practical applications. Max 50 words.
+    keywords:
+      - "psychology facts"
+      - "cognitive biases"
+      - "human behavior"
+      - "relationships"
+      - "body language"
+      - "memory improvement"
+      - "emotional intelligence"
+    pexels_search_query: "psychology behavior people interaction"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  food_recipes:
+    niche: "Food & Recipes"
+    videos_per_run: 1
+    posting_time: "00:00"  # 12 AM UTC (midnight)
+    prompt_template: |
+      You are a chef creating YouTube Shorts about easy recipes.
+      Share quick, delicious recipes that anyone can make.
+      Focus on ingredients, steps, and why it's worth making.
+      Make it appetizing and achievable. Max 50 words.
+    keywords:
+      - "easy recipes"
+      - "quick meals"
+      - "healthy eating"
+      - "cooking hacks"
+      - "meal prep"
+      - "food tips"
+      - "cuisine tutorials"
+    pexels_search_query: "food cooking recipes cuisine"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  travel_adventures:
+    niche: "Travel & Exploration"
+    videos_per_run: 1
+    posting_time: "02:00"  # 2 AM UTC
+    prompt_template: |
+      You are a travel expert creating YouTube Shorts about amazing destinations.
+      Share travel tips, hidden gems, and travel hacks.
+      Make people want to explore the world.
+      Include practical travel advice. Max 50 words.
+    keywords:
+      - "travel tips"
+      - "hidden gems"
+      - "travel hacks"
+      - "destination guides"
+      - "travel photography"
+      - "budget travel"
+      - "adventure ideas"
+    pexels_search_query: "travel adventure destination landscape"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  art_creativity:
+    niche: "Art & Creative Expression"
+    videos_per_run: 1
+    posting_time: "04:00"  # 4 AM UTC
+    prompt_template: |
+      You are an artist creating YouTube Shorts about creative tips.
+      Share art techniques, creative inspiration, and art history.
+      Make creativity accessible to everyone.
+      Include step-by-step guidance. Max 50 words.
+    keywords:
+      - "art tutorials"
+      - "creative tips"
+      - "drawing techniques"
+      - "art history"
+      - "creative inspiration"
+      - "design trends"
+      - "artist interviews"
+    pexels_search_query: "art creativity design painting"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  sports_fitness:
+    niche: "Sports & Athletic Training"
+    videos_per_run: 1
+    posting_time: "06:30"  # 6:30 AM UTC
+    prompt_template: |
+      You are a sports coach creating YouTube Shorts about athletic training.
+      Share workout tips, training techniques, and sports insights.
+      Make it motivating and practical.
+      Include form tips and benefits. Max 50 words.
+    keywords:
+      - "workout tips"
+      - "training techniques"
+      - "sports news"
+      - "athletic performance"
+      - "exercise science"
+      - "sports highlights"
+      - "training hacks"
+    pexels_search_query: "sports fitness athletic training"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  personal_finance:
+    niche: "Personal Finance & Investing"
+    videos_per_run: 1
+    posting_time: "09:00"  # 9 AM UTC
+    prompt_template: |
+      You are a financial advisor creating YouTube Shorts about personal finance.
+      Share investment strategies, financial planning, and wealth building.
+      Make finance understandable and actionable.
+      Include real-world examples. Max 50 words.
+    keywords:
+      - "investing strategies"
+      - "wealth building"
+      - "financial planning"
+      - "real estate investing"
+      - "crypto investing"
+      - "portfolio management"
+      - "retirement planning"
+    pexels_search_query: "finance investing money wealth"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  education_learning:
+    niche: "Education & Learning Tips"
+    videos_per_run: 1
+    posting_time: "11:00"  # 11 AM UTC
+    prompt_template: |
+      You are an educator creating YouTube Shorts about learning strategies.
+      Share study tips, learning hacks, and educational content.
+      Make learning engaging and effective.
+      Include practical techniques. Max 50 words.
+    keywords:
+      - "study tips"
+      - "learning hacks"
+      - "memory techniques"
+      - "exam preparation"
+      - "skill development"
+      - "online learning"
+      - "educational content"
+    pexels_search_query: "education learning studying classroom"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  environment_sustainability:
+    niche: "Environment & Sustainability"
+    videos_per_run: 1
+    posting_time: "13:00"  # 1 PM UTC
+    prompt_template: |
+      You are an environmental advocate creating YouTube Shorts about sustainability.
+      Share eco-friendly tips, environmental facts, and sustainability solutions.
+      Make environmental action achievable and motivating.
+      Include practical ways to help. Max 50 words.
+    keywords:
+      - "sustainability tips"
+      - "eco-friendly living"
+      - "climate action"
+      - "renewable energy"
+      - "zero waste"
+      - "environmental facts"
+      - "green living"
+    pexels_search_query: "environment nature sustainability green"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+  entertainment_pop_culture:
+    niche: "Entertainment & Pop Culture"
+    videos_per_run: 1
+    posting_time: "15:00"  # 3 PM UTC
+    prompt_template: |
+      You are an entertainment expert creating YouTube Shorts about pop culture.
+      Share entertainment news, movie/show reviews, and pop culture analysis.
+      Make it engaging and fun.
+      Include opinions and recommendations. Max 50 words.
+    keywords:
+      - "entertainment news"
+      - "movie reviews"
+      - "tv shows"
+      - "pop culture"
+      - "celebrity news"
+      - "music trends"
+      - "streaming recommendations"
+    pexels_search_query: "entertainment movie cinema fun"
+    youtube_credentials_path: "config/youtube_credentials.json"
+
+# Workflow Configuration
+workflow:
+  # Generate new scripts 3 times daily
+  generation_schedule:
+    - "00:00"  # Midnight UTC
+    - "08:00"  # 8 AM UTC
+    - "16:00"  # 4 PM UTC
+
+  # Each generation creates 1 script per channel
+  scripts_per_run: 1
+
+  # Videos are created as scripts become available
+  # Upload happens at the posting_time specified per channel
+
+  # This ensures:
+  # - 15 videos generated daily
+  # - 7-8 videos queued for upload
+  # - 1 video uploaded every ~2-3 hours
+  # - Distributed throughout the day
+  # - Hits YouTube API quota limit efficiently
+
+# Total Daily Output
+# Per generation (3x daily): 15 scripts
+# Daily uploads: 6-7 videos across all channels
+# Spread: 1 video every 1.5-2 hours
+# All 15 channels get content generated, 6-7 get posted

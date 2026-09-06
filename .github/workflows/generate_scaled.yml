@@ -1,0 +1,68 @@
+name: Generate Scripts (3x Daily - Scaled)
+
+on:
+  schedule:
+    # Generate scripts 3 times daily for maximum queue
+    - cron: '0 0 * * *'   # Midnight UTC
+    - cron: '0 8 * * *'   # 8 AM UTC
+    - cron: '0 16 * * *'  # 4 PM UTC
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate scripts for all 15 channels
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          python -m src.main \
+            science_facts \
+            motivation_daily \
+            life_hacks \
+            history_facts \
+            finance_tips \
+            tech_trends \
+            health_wellness \
+            business_growth \
+            psychology_insights \
+            food_recipes \
+            travel_adventures \
+            art_creativity \
+            sports_fitness \
+            personal_finance \
+            education_learning \
+            environment_sustainability \
+            entertainment_pop_culture
+
+      - name: Log generation metrics
+        run: |
+          echo "Generated scripts summary:"
+          sqlite3 data/generated_scripts.db "SELECT channel, COUNT(*) as count FROM scripts WHERE created_at > datetime('now', '-1 hour') GROUP BY channel;"
+
+      - name: Commit & push database updates
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          if [[ -n $(git status -s) ]]; then
+            git add data/
+            git commit -m "Auto: Update script database [$(date -u +'%Y-%m-%d %H:%M:%S')]"
+            git push
+          fi
