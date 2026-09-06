@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 from src.database import init_db
 from src.generator import generate_content
-from src.video_creator import create_videos
+from src.video_creator import create_videos, create_reddit_story_video
 from src.youtube_uploader import upload_videos
 
 def load_config(config_path: str = "config/channels.yaml") -> dict:
@@ -44,11 +44,19 @@ def run_pipeline(channels: list = None, stages: list = None):
 
         if "create" in stages:
             print(f"\n[CREATE] Creating videos for {channel}...")
-            num_created = create_videos(
-                channel=channel,
-                config=channel_config,
-                num_videos=channel_config.get("videos_per_run", 2)
-            )
+            # Use special handler for Reddit story format
+            if channel_config.get("content_format") == "reddit_story_minecraft":
+                num_created = create_reddit_story_video(
+                    channel=channel,
+                    config=channel_config,
+                    num_videos=channel_config.get("videos_per_run", 1)
+                )
+            else:
+                num_created = create_videos(
+                    channel=channel,
+                    config=channel_config,
+                    num_videos=channel_config.get("videos_per_run", 2)
+                )
             print(f"✓ Created {num_created} videos")
 
         if "upload" in stages:

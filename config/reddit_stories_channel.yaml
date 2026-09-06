@@ -1,0 +1,73 @@
+# Reddit Stories with Minecraft Parkour Overlay Channel
+#
+# Format:
+# - Reddit-style story (~200-300 words)
+# - AI narration (TTS)
+# - Minecraft parkour/parkour gameplay video overlay
+# - Auto-generated captions on top
+# - Result: Highly engaging Shorts
+
+channels:
+  reddit_stories:
+    niche: "Reddit Stories & Minecraft Parkour"
+    videos_per_run: 1
+    posting_time: "11:00"  # 11 AM UTC
+    content_format: "reddit_story_minecraft"  # Special format
+
+    prompt_template: |
+      You are a storyteller writing engaging Reddit-style short stories.
+      Create a compelling story (200-300 words) that sounds like it's from Reddit.
+      Include:
+      1. An interesting premise (unexpected twist, conflict, or revelation)
+      2. Build-up with relatable details
+      3. Climactic moment
+      4. Punchline or resolution
+
+      Make it dramatic, emotional, or funny. People should want to know what happens next.
+      Use first person if possible. Include realistic dialogue.
+
+      Format as a single text block - no line breaks between sections.
+
+    keywords:
+      - "reddit stories"
+      - "true stories"
+      - "dramatic encounters"
+      - "unexpected twists"
+      - "relationship drama"
+      - "workplace stories"
+      - "revenge stories"
+      - "amazing discoveries"
+      - "life lessons"
+      - "funny moments"
+
+    # Special configuration for Minecraft overlay
+    minecraft_settings:
+      # Types of Minecraft footage to use
+      footage_types:
+        - "parkour_gameplay"
+        - "speedrun_montage"
+        - "building_timelapse"
+        - "exploration"
+        - "combat_sequences"
+
+      # Pacing: matches story mood
+      pace: "dynamic"  # Adapts to story intensity
+
+      # Zoom/pan effects during intense moments
+      add_motion_effects: true
+
+      # Captions on screen
+      captions:
+        enabled: true
+        style: "minecraft_themed"  # Yellow/black background like Minecraft text
+        position: "bottom"
+        auto_sync_to_audio: true  # Captions match TTS timing
+
+    # TTS Configuration
+    tts_settings:
+      voice: "storyteller"  # Deep, engaging narrator voice
+      speed: 1.0  # Normal speed
+      emotion: "dramatic"  # More expressive
+
+    pexels_search_query: "minecraft parkour gaming gameplay"  # Fallback search
+    youtube_credentials_path: "config/youtube_credentials.json"
