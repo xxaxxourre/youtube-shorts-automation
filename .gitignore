@@ -1,12 +1,20 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
-venv/
-ENV/
 build/
 develop-eggs/
 dist/
@@ -29,34 +37,29 @@ wheels/
 *.swp
 *.swo
 *~
+.DS_Store
 
-# Environment
-.env
-.env.local
-.env.*.local
-
-# Data
+# Database
 data/
 *.db
 *.sqlite
 *.sqlite3
 
-# Credentials
-*credentials*.json
-*secret*.json
-youtube_*.json
-google_*.json
+# Video files (large)
+videos/
+*.mp4
+*.avi
+*.mov
 
-# System
-.DS_Store
-Thumbs.db
+# Logs
+logs/
 *.log
 
-# Flask
-instance/
-.webassets-cache
+# Credentials (NEVER commit these)
+config/youtube_credentials.json
+config/*_credentials.json
+.credentials/
 
-# Temporary
-*.tmp
-temp/
-cache/
+# OS
+.DS_Store
+Thumbs.db

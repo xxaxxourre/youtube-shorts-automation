@@ -17,7 +17,7 @@ channels:
       - "neuroscience"
       - "quantum physics"
     pexels_search_query: "space universe astronomy"
-    youtube_credentials_path: "/path/to/science_credentials.json"
+    youtube_credentials_path: "config/youtube_credentials.json"
 
   motivation_daily:
     niche: "Daily Motivation & Inspiration"
@@ -37,7 +37,7 @@ channels:
       - "goal setting"
       - "resilience"
     pexels_search_query: "success motivation inspiration people"
-    youtube_credentials_path: "/path/to/motivation_credentials.json"
+    youtube_credentials_path: "config/youtube_credentials.json"
 
   life_hacks:
     niche: "Life Hacks & Productivity Tips"
