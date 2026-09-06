@@ -1,0 +1,41 @@
+name: Create Videos
+
+on:
+  schedule:
+    - cron: '30 */6 * * *'  # 30 min after generate
+  workflow_dispatch:
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Download database
+        uses: actions/download-artifact@v3
+        with:
+          name: database
+          path: data
+
+      - name: Run video creator
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          python -m src.main create
+
+      - name: Upload videos artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: videos
+          path: data/videos/

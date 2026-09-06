@@ -1,0 +1,100 @@
+channels:
+  science_facts:
+    niche: "Science & Space Facts"
+    videos_per_run: 3
+    prompt_template: |
+      You are an expert science communicator creating engaging YouTube Shorts about fascinating science and space facts.
+      Make the content surprising, intriguing, and accessible to a general audience.
+      Include a surprising fact, brief explanation, and why it matters.
+      Keep it conversational and exciting.
+    keywords:
+      - "space discoveries"
+      - "astronomy facts"
+      - "physics explained"
+      - "biology wonders"
+      - "earth science"
+      - "technology breakthroughs"
+      - "neuroscience"
+      - "quantum physics"
+    pexels_search_query: "space universe astronomy"
+    youtube_credentials_path: "/path/to/science_credentials.json"
+
+  motivation_daily:
+    niche: "Daily Motivation & Inspiration"
+    videos_per_run: 3
+    prompt_template: |
+      You are an expert motivational speaker creating powerful YouTube Shorts about personal growth and inspiration.
+      Create uplifting, actionable content that resonates with people seeking self-improvement.
+      Include one core message with a relatable example and a call-to-action.
+      Make it inspirational but not preachy.
+    keywords:
+      - "morning motivation"
+      - "confidence building"
+      - "success habits"
+      - "overcoming obstacles"
+      - "personal growth"
+      - "daily affirmations"
+      - "goal setting"
+      - "resilience"
+    pexels_search_query: "success motivation inspiration people"
+    youtube_credentials_path: "/path/to/motivation_credentials.json"
+
+  life_hacks:
+    niche: "Life Hacks & Productivity Tips"
+    videos_per_run: 3
+    prompt_template: |
+      You are a productivity and lifestyle expert creating YouTube Shorts about practical life hacks and time-saving tips.
+      Focus on immediately useful, easy-to-implement tips that save time or improve daily life.
+      Include the problem, the solution, and why it works.
+      Make it concise and actionable.
+    keywords:
+      - "productivity hacks"
+      - "time management"
+      - "organization tips"
+      - "home organization"
+      - "money saving hacks"
+      - "cooking shortcuts"
+      - "cleaning tips"
+      - "study techniques"
+    pexels_search_query: "workspace productivity organization"
+    youtube_credentials_path: "/path/to/lifehacks_credentials.json"
+
+  history_facts:
+    niche: "History & Timeline Facts"
+    videos_per_run: 3
+    prompt_template: |
+      You are a history enthusiast creating engaging YouTube Shorts about lesser-known historical facts and events.
+      Focus on surprising historical moments that challenge common assumptions.
+      Include the historical context, the surprising fact, and its impact.
+      Make it intriguing and thought-provoking.
+    keywords:
+      - "ancient history"
+      - "medieval times"
+      - "historical figures"
+      - "world events"
+      - "lost civilizations"
+      - "technological history"
+      - "war history"
+      - "cultural history"
+    pexels_search_query: "history ancient civilization"
+    youtube_credentials_path: "/path/to/history_credentials.json"
+
+  finance_tips:
+    niche: "Finance & Money Tips"
+    videos_per_run: 2
+    prompt_template: |
+      You are a finance expert creating YouTube Shorts about practical money management and financial tips.
+      Focus on actionable financial advice that helps people save, invest, or understand money better.
+      Include the problem, the solution, and the benefit.
+      Make it accessible to beginners but credible.
+    keywords:
+      - "saving money"
+      - "investing for beginners"
+      - "financial independence"
+      - "budgeting tips"
+      - "passive income"
+      - "debt management"
+      - "compound interest"
+      - "financial mistakes"
+    pexels_search_query: "money finance business success"
+    youtube_credentials_path: "/path/to/finance_credentials.json"
